@@ -13,11 +13,27 @@
 
 class Game {
 public:
+
+	// Construct / Destruct
 	Game();
 	~Game();
 
+	// Accessors
+
+	// Modifiers
+
+	// Functions
+	void update();
+	void render();
+
 private:
 
+	sf::VideoMode videoMode;
+	sf::RenderWindow* window;
+	bool endGame;
+
+	void initVars();
+	void initWindow();
 };
 
 #endif
