@@ -4,12 +4,8 @@
 #include <iostream>
 #include <ctime>
 
-// SFML includes
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Network.hpp>
+// Include player class, includes sfml includes as well.
+#include "Player.h"
 
 class Game {
 public:
@@ -36,8 +32,11 @@ private:
 	bool endGame;
 	sf::Event sfmlEvent;
 
+	Player player;
+
 	void initVars();
 	void initWindow();
+
 };
 
 #endif

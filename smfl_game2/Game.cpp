@@ -41,7 +41,7 @@ void Game::render() {
 	this->window->clear();
 
 	//render stuff
-
+	this->player.render(this->window);
 
 	// Show what has been rendered.
 	this->window->display();
