@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <ctime>
+#include <vector>
 
 // Include player class, includes sfml includes as well.
 #include "Player.h"
+#include "Balls.h"
 
 class Game {
 public:
@@ -22,6 +24,7 @@ public:
 	const bool running() const;
 	void pollEvents();
 
+	void spawnBalls();
 	void update();
 	void render();
 
@@ -33,6 +36,11 @@ private:
 	sf::Event sfmlEvent;
 
 	Player player;
+
+	std::vector<Balls> ballVec;
+	float spawnTimerMax;
+	float spawnTimer;
+	unsigned maxBalls;
 
 	void initVars();
 	void initWindow();

@@ -2,7 +2,8 @@
 #include <iostream>
 
 void Player::initVars() {
-
+	this->ms = 10.f;
+	this->hp = this->MAXHP;
 }
 
 void Player::initShapes() {
@@ -47,7 +48,7 @@ void Player::updateWinCollision(const sf::RenderTarget* target) {
 
 	sf::FloatRect playerPos = this->shape.getGlobalBounds();
 
-	// Corrdinates after collision update
+	// Corrdinates after collision update, default is player's current pos.
 	float colX = playerPos.left;
 	float colY = playerPos.top;
 

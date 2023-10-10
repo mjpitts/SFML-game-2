@@ -13,16 +13,16 @@ class Balls
 private:
 	sf::CircleShape shape;
 
-	void initShape();
+	void initShape(const sf::RenderWindow& window);
 
 
 public:
-	Balls();
+	Balls(const sf::RenderWindow& window);
 	virtual ~Balls();
 
 	// Functions
 	void update();
-	void render(sf::RenderTarget* target);
+	void render(sf::RenderTarget& target);
 };
 
 #endif

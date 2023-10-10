@@ -12,7 +12,11 @@ class Player
 {
 private:
 	sf::RectangleShape shape;
-	float ms = 10.f;
+
+	// Variables
+	float ms;
+	const int MAXHP = 10;
+	int hp;
 	
 	void initVars();
 	void initShapes();
