@@ -2,9 +2,23 @@
 
 void Balls::initShape(const sf::RenderWindow& window) {
 
+	//Default color 
+	sf::Color color(sf::Color::Cyan);
+
+	switch (this->type)
+	{
+	case DEFAULT:
+		color = sf::Color::Blue;
+		break;
+	case DAMAGING:
+		color = sf::Color::Red;
+		break;
+	case HEALING:
+		color = sf::Color::Green;
+		break;
+	}
 	// Randomize color and size.
 	this->shape.setRadius(static_cast<float>(rand() % 10 + 10));
-	sf::Color color(rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1);
 	this->shape.setFillColor(color);
 
 	// Define area where balls can spawn.
@@ -18,12 +32,21 @@ void Balls::initShape(const sf::RenderWindow& window) {
 		));
 }
 
-Balls::Balls(const sf::RenderWindow& window) {
+const int& Balls::getType() const {
+	return this->type;
+}
+
+Balls::Balls(const sf::RenderWindow& window, int type) {
+	this->type = type;
 	this->initShape(window);
 }
 
 Balls::~Balls() {
 
+}
+
+const sf::CircleShape& Balls::getShape() const {
+	return this->shape;
 }
 
 void Balls::update() {

@@ -8,17 +8,28 @@
 #include <SFML/Window.hpp>
 #include <SFML/Network.hpp>
 
+// Using enum for ball types.
+enum BallTypes {
+	DEFAULT = 0, DAMAGING, HEALING, NUMTYPES
+};
+
 class Balls
 {
 private:
 	sf::CircleShape shape;
+	int type;
 
 	void initShape(const sf::RenderWindow& window);
 
+	
 
 public:
-	Balls(const sf::RenderWindow& window);
+	Balls(const sf::RenderWindow& window, int type);
 	virtual ~Balls();
+
+	// Accessors
+	const int& getType() const;
+	const sf::CircleShape& getShape() const;
 
 	// Functions
 	void update();

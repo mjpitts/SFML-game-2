@@ -80,6 +80,48 @@ void Player::update(const sf::RenderTarget* target) {
 	this->updateWinCollision(target);
 }
 
+const sf::RectangleShape& Player::getShape() const {
+	return this->shape;
+}
+
 void Player::render(sf::RenderTarget* target) {
 	target->draw(this->shape);
 }
+
+
+// Accessors
+const int& Player::getHp() const {
+	return this->hp;
+}
+
+const int& Player::getHpMax() const {
+	return this->MAXHP;
+}
+
+// Functions
+void Player::takeDamage(const int damage) {
+	
+	// Take damage.
+	if (this->hp > 0) {
+		this->hp -= damage;
+	}
+	
+	// Ensure health doesn't dip below 0 after damage taken.
+	if(this->hp < 0) {
+		this->hp = 0;
+	}
+}
+
+void Player::gainHealth(const int health) {
+	// Heal/
+	if (this->hp < this->MAXHP) {
+		this->hp += health;
+	}
+
+	// Prevent over heal after update/
+	if (this->hp > this->MAXHP) {
+		this->hp = this->MAXHP;
+	}
+}
+
+

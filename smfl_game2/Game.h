@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include <sstream>
 
 // Include player class, includes sfml includes as well.
 #include "Player.h"
@@ -17,16 +18,21 @@ public:
 	~Game();
 
 	// Accessors
+	const bool& getEndGame() const;
 
 	// Modifiers
 
 	// Functions
 	const bool running() const;
 	void pollEvents();
-
+	const int randomizeType();
 	void spawnBalls();
+	void updatePlayer();
+	void updateCollison();
 	void update();
+	void updateGui();
 	void render();
+	void renderGui(sf::RenderTarget* target);
 
 private:
 
@@ -37,6 +43,12 @@ private:
 
 	Player player;
 
+	unsigned points;
+
+	sf::Font font;
+	sf::Text guiText;
+	sf::Text endText;
+
 	std::vector<Balls> ballVec;
 	float spawnTimerMax;
 	float spawnTimer;
@@ -44,6 +56,8 @@ private:
 
 	void initVars();
 	void initWindow();
+	void initFont();
+	void initText();
 
 };
 
